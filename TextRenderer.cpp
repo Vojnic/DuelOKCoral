@@ -142,7 +142,7 @@ void TextRenderer::loadCharacters(const std::string& fontPath, int fontSize) {
 void TextRenderer::RenderText(const std::string& text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color) {
     glUseProgram(shaderProgram);
 
-    glm::mat4 projection = glm::ortho(0.0f, 800.0f, 0.0f, 800.0f, -1.0f, 1.0f);
+    glm::mat4 projection = glm::ortho(0.0f, 1440.0f, 0.0f, 940.0f, -1.0f, 1.0f);
     GLint projLoc = glGetUniformLocation(shaderProgram, "projection");
 
     glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));

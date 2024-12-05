@@ -263,7 +263,7 @@ int main() {
 				player1ReadyInProgress = true;
 			}
 			if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS && player1.getState() == Player::State::Ready && player2.getState() != Player::State::Dead && !player2DeathPending) {
-				player2DeathTime = std::chrono::steady_clock::now() + std::chrono::milliseconds(350);
+				player2DeathTime = std::chrono::steady_clock::now() + std::chrono::milliseconds(1000);
 				player2DeathPending = true;
 				player1.addPoints();
 				inputDisabled = true;
@@ -291,7 +291,7 @@ int main() {
 				player2ReadyInProgress = true;
 			}
 			if (glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS && player2.getState() == Player::State::Ready && player1.getState() != Player::State::Dead && !player1DeathPending && !isSinglePlayer) {
-				player1DeathTime = std::chrono::steady_clock::now() + std::chrono::milliseconds(350);
+				player1DeathTime = std::chrono::steady_clock::now() + std::chrono::milliseconds(1000);
 				player1DeathPending = true;
 				player2.addPoints();
 				inputDisabled = true;
@@ -351,26 +351,26 @@ int main() {
 					{
 						std::string timeString = "Bot shot in: " + std::to_string(timeMs) + "ms";
 						glm::vec3 timeColor(1.0f, 1.0f, 1.0f);
-						textRenderer.RenderText(timeString, 300.0f, 400.0f, 0.7f, timeColor);
+						textRenderer.RenderText(timeString, 250.0f, 500.0f, 0.7f, timeColor);
 					}
 					else {
 						std::string timeString = "Player2 shot in: " + std::to_string(timeMs) + "ms";
 						glm::vec3 timeColor(1.0f, 1.0f, 1.0f);
-						textRenderer.RenderText(timeString, 300.0f, 400.0f, 0.7f, timeColor);
+						textRenderer.RenderText(timeString, 250.0f, 500.0f, 0.7f, timeColor);
 					}
 				}
 				else {
 					std::string timeString = "Player1 shot in : " + std::to_string(timeMs) + "ms";
 					glm::vec3 timeColor(1.0f, 1.0f, 1.0f);
-					textRenderer.RenderText(timeString, 100.0f, 400.0f, 0.7f, timeColor);
+					textRenderer.RenderText(timeString, 250.0f, 500.0f, 0.7f, timeColor);
 				}
 			}
 
 			glm::vec3 scoreColor(1.0f, 0.0f, 1.0f);
 
-			textRenderer.RenderText(std::to_string(player1Score), 10.0f, 760.0f, 1.0f, scoreColor);
+			textRenderer.RenderText(std::to_string(player1Score), 50.0f, 900.0f, 1.0f, scoreColor);
 
-			textRenderer.RenderText(std::to_string(player2Score), 700.0f, 760.0f, 1.0f, scoreColor);
+			textRenderer.RenderText(std::to_string(player2Score), 1350.0f, 900.0f, 1.0f, scoreColor);
 		}
 
 		glfwSwapBuffers(window);
